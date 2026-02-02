@@ -8,6 +8,7 @@ const PATH = {
     ABIBAS: '/abibas',
     PRICES: '/prices',
     ERROR404: '/error404',
+    PROTECTEDPAGE: '/protectedpage',
 } as const
 
 export const App = () => {
@@ -20,6 +21,7 @@ export const App = () => {
                     <S.NavWrapper><NavLink to={PATH.PUMA}>Puma</NavLink></S.NavWrapper>
                     <S.NavWrapper><NavLink to={PATH.ABIBAS}>Abibas</NavLink></S.NavWrapper>
                     <S.NavWrapper><NavLink to={PATH.PRICES}>Prices</NavLink></S.NavWrapper>
+                    <S.NavWrapper><NavLink to={PATH.PROTECTEDPAGE}>Protected Page</NavLink></S.NavWrapper>
                 </div>
                 <div className={styles.content}>
                     <Outlet/>
