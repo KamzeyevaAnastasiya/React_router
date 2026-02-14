@@ -1,8 +1,9 @@
-import {createBrowserRouter} from "react-router-dom";
+import {createBrowserRouter, Navigate} from "react-router-dom";
 import {App} from "../App";
 import {Abibas} from "../components/pages/Abibas";
 import {Adidas} from "../components/pages/Adidas";
 import {Error404} from "../components/pages/Error404";
+import {Login} from "../components/pages/Login";
 import {Model} from "../components/pages/Model";
 import {PretectedPage} from "../components/pages/PretectedPage";
 import {Prices} from "../components/pages/Prices";
@@ -17,13 +18,14 @@ const PATH = {
     ERROR404: '/error404',
     MODEL: '/:brand/:id',
     PROTECTEDPAGE: '/protectedpage',
+    LOGIN: '/login',
 } as const
 
 export const router = createBrowserRouter([
     {
         path: "/",
         element: <App/>,
-        errorElement: <Error404/>,
+        errorElement: <Navigate to={PATH.ERROR404}/>,
         children: [
             {
                 path: PATH.ADIDAS,
@@ -57,7 +59,10 @@ export const router = createBrowserRouter([
                 path: PATH.ERROR404,
                 element: <Error404/>,
             },
+            {
+                path: PATH.LOGIN,
+                element: <Login/>
+            },
         ]
     },
-
 ]);
